@@ -5,6 +5,14 @@ const Block = props => {
 }
 
 const blockStyle = index => {
+  if (index === "border none") {
+    return {
+      width: 30,
+      height: 30,
+      backgroundColor: 'white',
+      display: "inline-block"
+    }
+  }
   const color = [
     "white",
     "silver",

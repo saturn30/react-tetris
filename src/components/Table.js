@@ -7,7 +7,8 @@ class Table extends React.Component {
     return (
       <div
         style={{
-          width: 300
+          width: 300,
+          display: 'inline-block'
         }}
       >
         {this.props.table.map((array, index) => (
