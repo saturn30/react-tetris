@@ -1,5 +1,6 @@
 import React from "react"
 import Block from "./Block"
+import BlockContainer from '../containers/BlockContainer'
 
 class Table extends React.Component {
   
@@ -11,12 +12,10 @@ class Table extends React.Component {
           display: 'inline-block'
         }}
       >
-        {this.props.table.map((array, index) => (
-          <div key={index} style={{ padding: 0, height: 30 }}>
-            {array.map((item, index) => (
-              <Block color={item} key={index}>
-                
-              </Block>
+        {this.props.table.map((array, i) => (
+          <div key={i} style={{ padding: 0, height: 30 }}>
+            {array.map((item, j) => (
+              <BlockContainer i = {i} j = {j} key={j}/>
             ))}
           </div>
         ))}
