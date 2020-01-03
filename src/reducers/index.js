@@ -1,17 +1,26 @@
-import * as types from '../actions/actionTypes'
-import { initTable, start, moveLeft, moveRight, moveDown, moveEnd } from './TableFunc'
+import * as types from "../actions/actionTypes"
+import {
+  initTable,
+  start,
+  moveLeft,
+  moveRight,
+  moveDown,
+  moveEnd,
+  rotate
+} from "./TableFunc"
 
 const initialState = {
   table: initTable(),
-  location: [0,0],
+  location: [0, 0],
   nowBlock: [],
   nextBlock: [],
-  score : 0,
-  level : 1
+  score: 0,
+  level: 1,
+  isRunning: false
 }
 
 const reducer = (state = initialState, action) => {
-  switch(action.type){
+  switch (action.type) {
     case types.START:
       return start(state)
     case types.MOVE_LEFT:
@@ -23,9 +32,7 @@ const reducer = (state = initialState, action) => {
     case types.MOVE_END:
       return moveEnd(state)
     case types.ROTATE:
-    case types.LINE_CLEAR:
-    case types.GET_SCORE:
-    case types.GET_NEXT_BLOCK:
+      return rotate(state)
     default:
       return state
   }

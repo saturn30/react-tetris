@@ -3,11 +3,19 @@ import Block from "./Block"
 
 const NextBlock = props => {
   return (
-    <div style={{ display: "inline-block", width: '100%', height: 150, textAlign: 'center' }}>
+    <div
+      style={{
+        display: "inline-block",
+        width: "100%",
+        height: 150,
+        textAlign: "center"
+      }}
+    >
       next
-      <br /><br />
+      <br />
+      <br />
       {props.nextBlock.map((array, index) => (
-        <div style={{ height: 30 }}>
+        <div style={{ height: 30 }} key={index}>
           {array.map((item, index) => (
             <Block color={item ? item : "border none"} key={index} />
           ))}

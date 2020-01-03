@@ -8,19 +8,36 @@ class TotalView extends React.Component {
     this.div.focus()
   }
 
+  componentDidUpdate = () => {
+    const { isRunning, onMoveDown, level } = this.props
+    if (isRunning && !this.setInterval) {
+      this.setInterval = true
+      this.intervalDown = setInterval(
+        onMoveDown,
+        1000 - (level > 9 ? 900 : level * 100)
+      )
+    } else {
+      clearInterval(this.intervalDown)
+      this.setInterval = false
+    }
+  }
+
   handleKeyPress = e => {
+    const isRunning = this.props.isRunning
     console.log(e.key)
     switch (e.key) {
-      case "Enter":
+      case !isRunning && "Enter":
         return this.props.onStart()
       case "ArrowLeft":
-        return this.props.onMoveLeft()
+        return isRunning && this.props.onMoveLeft()
       case "ArrowRight":
-        return this.props.onMoveRight()
+        return isRunning && this.props.onMoveRight()
       case "ArrowDown":
-        return this.props.onMoveDown()
+        return isRunning && this.props.onMoveDown()
+      case "ArrowUp":
+        return isRunning && this.props.onRotate()
       case " ":
-        return this.props.onMoveEnd()
+        return isRunning && this.props.onMoveEnd()
       default:
         return
     }
@@ -31,7 +48,11 @@ class TotalView extends React.Component {
       <div
         onKeyDown={this.handleKeyPress}
         tabIndex="0"
-        style={{ outline: 0 }}
+        style={{ 
+          outline: 0,
+          textAlign: 'center',
+          padding: 50,
+        }}
         ref={ref => {
           this.div = ref
         }}

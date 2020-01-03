@@ -21,7 +21,8 @@ const blockStyle = index => {
     "#e9d78e",
     "#e0598b",
     "#5698c4",
-    "#9abf88"
+    "#9abf88",
+    "black"
   ]
   return {
     width: 30,

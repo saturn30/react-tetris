@@ -23,15 +23,3 @@ export const moveEnd = () => ({
 export const rotate = () => ({
   type: types.ROTATE
 })
-
-export const lineClear = () => ({
-  type: types.LINE_CLEAR
-})
-
-export const getScore = () => ({
-  type: types.GET_SCORE
-})
-
-export const getNextBlock = () => ({
-  type: types.GET_NEXT_BLOCK
-})
