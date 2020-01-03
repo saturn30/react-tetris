@@ -245,8 +245,6 @@ export const endGame = state => {
   return({
     ...state,
     table,
-    isRunning: false,
-    level: 1,
-    score: 0
+    isRunning: false
   })
 }

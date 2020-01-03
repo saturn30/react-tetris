@@ -10,7 +10,10 @@ class TotalView extends React.Component {
 
   componentDidUpdate = () => {
     const { isRunning, onMoveDown, level } = this.props
-    if (isRunning && !this.setInterval) {
+    if (isRunning) {
+      if (this.setInterval) {
+        clearInterval(this.intervalDown)
+      }
       this.setInterval = true
       this.intervalDown = setInterval(
         onMoveDown,
@@ -48,10 +51,10 @@ class TotalView extends React.Component {
       <div
         onKeyDown={this.handleKeyPress}
         tabIndex="0"
-        style={{ 
+        style={{
           outline: 0,
-          textAlign: 'center',
-          padding: 50,
+          textAlign: "center",
+          padding: 50
         }}
         ref={ref => {
           this.div = ref
