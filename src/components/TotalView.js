@@ -2,6 +2,7 @@ import React from "react"
 import TableContainer from "../containers/TableContainer"
 import NextBlockContainer from "../containers/NextBlockContainer"
 import ScoreBoardContainer from "../containers/ScoreBoardContainer"
+import Table from '../components/Table'
 
 class TotalView extends React.Component {
   componentDidMount = () => {
@@ -60,7 +61,7 @@ class TotalView extends React.Component {
           this.div = ref
         }}
       >
-        <TableContainer />
+        <Table />
         <div
           style={{
             display: "inline-block",
